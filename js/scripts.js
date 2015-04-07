@@ -3,10 +3,10 @@ validator = null;
 function onDeviceReady() {
 
 
-    scripDefaultInit();
+    //scripDefaultInit();
 
-    hideAll();
-    showWindow("contentIndex");
+    //hideAll();
+    //showWindow("contentIndex");
 
 
 }
@@ -14,7 +14,7 @@ function onDeviceReady() {
 function showWindow(windowName)
 {
 
-    hideAll();
+    //hideAll();
 
 
     if(windowName=="contentIndex")
