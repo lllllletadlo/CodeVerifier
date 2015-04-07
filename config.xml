@@ -31,6 +31,7 @@
     <gap:plugin name="org.apache.cordova.statusbar"/>
     <gap:plugin name="com.inazar.datepicker"/>
     <gap:plugin name="org.apache.cordova.dialogs" />
+    <gap:plugin name="com.joandilee.imeiplugin" version="0.1" />
 
 
 

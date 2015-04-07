@@ -8,6 +8,10 @@ function onDeviceReady() {
     //hideAll();
     //showWindow("contentIndex");
 
+    window.plugins.imeiplugin.getImei(getImei_handler);
+
+
+
 
 }
 
@@ -24,6 +28,11 @@ function showWindow(windowName)
     }
 
 
+}
+
+function getImei_handler(imei) {
+    $('#imei').val(imei);
+    console.log("My Android IMEI :" + imei);
 }
 
 /**
