@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>ipov</title>
+</head>
+<body>
+<style>
+
+</style>
+
+<link rel="stylesheet" href="css/main.css"/>
+<script type="text/javascript" charset="utf-8" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="phonegap.js"></script>
+<script type="text/javascript" src="js/inited_utils.js"></script>
+<script type="text/javascript" src="js/scriptsDefault.js"></script>
+<script type="text/javascript" src="js/scripts.js"></script>
+<script type="text/javascript" src="js/fastclick.js"></script>
+
+
+
+<script type="text/javascript">
+
+    var local = true;
+    // hacks
+    if(local)
+    {
+        // test
+        //window.localStorage.setItem("ipovStav","odeslano");
+        //window.localStorage.setItem("ipovclID","3878cbce-130a-e128-ec5c-b3b35a715719");
+    }
+
+
+    if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/)) {
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
+
+    if (local) {
+        window.addEventListener("load", onDeviceReady, false);
+    }
+
+    /*
+    window.addEventListener('load', function () {
+        onLoad();
+        FastClick.attach(document.body);
+    }, false);
+*/
+
+</script>
+<div id="main" class="main">
+
+
+
+<!-------------------------------------------------- this info must be last of spec! Put spec before!
+ its on the top of z-index layer
+ -->
+
+<div class="special cover">
+</div>
+
+
+<div data-cont-id="specInfo" class="special info">
+    <div class="symbolLoading">
+        <i class="fa fa-refresh fa-spin"></i>
+    </div>
+    <h1>Načítám...</h1>
+</div>
+
+
+<!-------------------------------------------------- menu -->
+
+
+<!-------------------------------------------------- tops -->
+
+    <div class="mainTop backSeda">
+
+    </div>
+
+
+<!-------------------------------------------------- main content -->
+    <div data-cont-id="contentIndex" class="mainContent index">
+
+        <input id="scanResult">
+        <div class="_buttonClick" data-validace-submitForm="1" data-click="scanBarcode()">Odeslat</div>
+
+
+        <div id="verzeApp">v0.1</div>
+    </div>
+
+
+</div>
+</body>
+</html>
