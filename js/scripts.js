@@ -18,6 +18,9 @@ function onDeviceReady() {
 
     showWindow("screenScan");
 
+    //$("div.footer").css("top",$("div.footer").position().top + "px");
+    $("div.footer").css("top",$(document).height()-$("div.footer").height() + "px");
+    $("#verzeApp").css("top",$(document).height()-$("#verzeApp").height()-2 + "px");
 }
 
 
@@ -25,6 +28,14 @@ function onDeviceReady() {
 
 function clickInit()
 {
+
+    $("div.footer").on(support.supportedTouchStartEven, "li", function (e) {
+
+        showWindow($(this).attr("class").substring(4));
+
+    });
+
+
     $("#memmory").on("click", "h1", function (e) {
 
         screenDetail_draw(scanData[$(this).attr("data-index")]);
@@ -75,7 +86,9 @@ function scanBarcode() {
 
         scanner.scan(function (result) {
             //searchArticles("", "", "", result.text, 1, 10);
-            $('#scanResult').val(result.text + "/" + result.format);
+            //$('#scanResult').val(result.text + "/" + result.format);
+            $('#scanResult').val(result.text);
+            ajax_send();
             console.log("SCANNER result: \n" +
             "text: " + result.text + "\n" +
             "format: " + result.format + "\n" +
