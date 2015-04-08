@@ -36,7 +36,7 @@ function onDeviceReady() {
 function clickInit()
 {
 
-    $("div.footer").on("click", "li", function (e) {
+    $("div.footer").on(support.supportedTouchStartEven, "li", function (e) {
         e.preventDefault();
         e.stopPropagation();
         showWindow($(this).attr("class").substring(4));
@@ -45,7 +45,8 @@ function clickInit()
 
 
     $("#memmory").on(support.supportedTouchStartEven, "h1", function (e) {
-
+        e.preventDefault();
+        e.stopPropagation();
         screenDetail_draw(scanData[$(this).attr("data-index")]);
         showWindow("screenDetail");
     });
