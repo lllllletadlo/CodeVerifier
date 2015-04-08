@@ -33,6 +33,10 @@ p {
     padding: 0px;
 }
 
+a {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
 .button {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -135,6 +139,7 @@ input {
     background-color: white;
     margin: 10%;
     height: 10em;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 .buttonMemmory {

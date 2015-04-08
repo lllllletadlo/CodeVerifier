@@ -37,8 +37,9 @@ function clickInit()
     });
 
 
-    $("#memmory").on("click", "h1", function (e) {
+    $("#memmory").on(support.supportedTouchStartEven, "#memmory h1", function (e) {
 
+        return;
         screenDetail_draw(scanData[$(this).attr("data-index")]);
         showWindow("screenDetail");
     });
@@ -123,7 +124,7 @@ function ajax_send()
         url: $("#setServer").val() + "tokens/show/"+$('#scanResult').val()+"=.json",
         type: 'POST',
         data: JSON.stringify({
-            Username: "frantisek",
+            Username: $("#setUserName").val(),
             Password: "heslo",
             IMEI: "123456789012345"
         }),
@@ -185,41 +186,11 @@ function ajaxErrorHandler(data) {
 
     waiter_display(false);
     console.log(data);
-
-
-    if(!local)
+    if(data!=null)
     {
-        if(typeof navigator.connection!="undefined")
-        {
-
-            var networkState = navigator.connection.type;
-            if(networkState == Connection.UNKNOWN || networkState== Connection.NONE)
-            {
-                alertG("Nelze se připojit k internetu","Chyba!");
-                return;false
-            }
-        }
-
+        alertG(data.statusText);
     }
 
-    var msg = "";
-    if(typeof data.msg != "undefined")
-    {
-        msg = data.msg;
-    }
-
-    if(typeof data.responseText != "undefined")
-    {
-        msg = data.responseText;
-    }
-
-    if(msg=="")
-    {
-        alertG("Chyba s komunikací se serverem","Chyba!");
-    } else
-    {
-        alertG("chyba:" +data.msg,"Chyba!");
-    }
 }
 
 function storage_write()
