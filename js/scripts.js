@@ -45,8 +45,31 @@ function clickInit()
 
 
     $("#memmory").on("click", "h1", function (e) {
-        e.preventDefault();
-        e.stopPropagation();
+
+        if ($(this).hasClass("buttonDisable"))
+            return;
+        if ($(this).hasClass("buttonOpacity"))
+            $(this).addClass('highlightOpacity');
+        else
+            $(this).addClass('highlight');
+        var el = this;
+
+        setTimeout(function () {
+            var dataClick = $(el).attr("data-click");
+            if ($(el).hasClass("buttonOpacity"))
+                $(el).removeClass('highlightOpacity');
+            else
+                $(el).removeClass('highlight');
+            if (dataClick != null) {
+                eval(dataClick);
+            }
+        }, 150);
+
+
+
+
+
+
         screenDetail_draw(scanData[$(this).attr("data-index")]);
         showWindow("screenDetail");
     });
