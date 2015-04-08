@@ -66,10 +66,6 @@ function clickInit()
         }, 150);
 
 
-
-
-
-
         screenDetail_draw(scanData[$(this).attr("data-index")]);
         showWindow("screenDetail");
     });

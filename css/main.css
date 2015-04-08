@@ -149,6 +149,7 @@ input {
 /* -------------------------------------- screenDetail */
 #screenDetail textarea {
     width: 90%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 
