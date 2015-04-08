@@ -169,10 +169,10 @@ function ajax_blok(code)
 function ajax_blokdataProceed(data)
 {
     waiter_display(false);
-    var desc = data.ErrorDescription==null?"":data.ErrorDescription;
+    var desc = data.ErrorDescription==null?"":"\n"+data.ErrorDescription;
     if(data!=null)
     {
-        alert(data.message);
+        alert(data.message + desc);
         ajax_send();
     }
 
