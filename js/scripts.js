@@ -36,9 +36,9 @@ function onDeviceReady() {
 function clickInit()
 {
 
-    $("div.footer").on(support.supportedTouchStartEven, "li", function (e) {
-        e.stopPropagation();
-        e.preventDefault();
+    $("div.footer").on("click", "li", function (e) {
+        //e.stopPropagation();
+        //e.preventDefault();
         showWindow($(this).attr("class").substring(4));
 
     });
