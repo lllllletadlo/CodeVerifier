@@ -1,4 +1,7 @@
-var scanData = [];
+var scanCodes = [];
+var detailData;
+//scanData_currentindex = -1;
+var ticketData;
 
 function onDeviceReady() {
 
@@ -15,8 +18,8 @@ function onDeviceReady() {
 
     if(local)
     {
-        $("#memmory").append('<h1 data-index="0" class="_buttonClick buttonOpacity buttonMemmory">IqiW87hcEZg=</h1>');
-        $("#memmory").append('<h1 data-index="0" class="_buttonClick buttonOpacity buttonMemmory">aa=</h1>');
+        //$("#memmory").append('<h1 data-index="0" class="_buttonClick buttonOpacity buttonMemmory">IqiW87hcEZg=</h1>');
+        //$("#memmory").append('<h1 data-index="0" class="_buttonClick buttonOpacity buttonMemmory">aa=</h1>');
     }
 
 
@@ -66,8 +69,10 @@ function clickInit()
         }, 150);
 
 
-        screenDetail_draw(scanData[$(this).attr("data-index")]);
-        showWindow("screenDetail");
+        $('#scanResult').val($(this).html())
+        ajax_send();
+        //screenDetail_draw($(this).attr("data-index"));
+        //showWindow("screenDetail");
     });
 }
 
@@ -113,7 +118,8 @@ function scanBarcode() {
     {
         result.text = "text";
         result.format = "format";
-        $('#scanResult').val("IqiW87hcEZg");
+        //$('#scanResult').val("IqiW87hcEZg");
+        $('#scanResult').val("IxOwVg84Eh0=");
         ajax_send();
     } else
     {
@@ -140,6 +146,61 @@ function scanBarcode() {
 }
 
 
+function ajax_blok(code)
+{
+    waiter_display(true);
+
+    $.ajax({
+        //url: url + "/tokens/show/QwSwVL5Py5g=.json",
+        url: $("#setServer").val() + "tokens/lock-due/"+$('#scanResult').val()+"=.json",
+        type: 'POST',
+        data: JSON.stringify({
+            Username: $("#setUserName").val(),
+            Password: "heslo",
+            IMEI: "123456789012345"
+        }),
+        contentType: 'application/json',
+        dataType: 'json',
+        success: ajax_blokdataProceed,
+        error: ajaxErrorHandler
+    });
+}
+
+function ajax_blokdataProceed(data)
+{
+    waiter_display(false);
+    var desc = data.ErrorDescription==null?"":data.ErrorDescription;
+    if(data!=null)
+    {
+        alert(data.message);
+        ajax_send();
+    }
+
+
+}
+
+
+function ajax_pay()
+{
+    waiter_display(true);
+
+    $.ajax({
+        //url: url + "/tokens/show/QwSwVL5Py5g=.json",
+        url: $("#setServer").val() + "tokens/pay/"+$('#scanResult').val()+"=.json",
+        type: 'POST',
+        data: JSON.stringify({
+            Username: $("#setUserName").val(),
+            Password: "heslo",
+            IMEI: "123456789012345",
+            Amount : detailData.Due
+        }),
+        contentType: 'application/json',
+        dataType: 'json',
+        success: ajax_blokdataProceed,
+        error: ajaxErrorHandler
+    });
+}
+
 
 function ajax_send()
 {
@@ -147,7 +208,7 @@ function ajax_send()
 
     $.ajax({
         //url: url + "/tokens/show/QwSwVL5Py5g=.json",
-        url: $("#setServer").val() + "tokens/show/"+$('#scanResult').val()+"=.json",
+        url: $("#setServer").val() + "tokens/show/" + $('#scanResult').val() +".json",
         type: 'POST',
         data: JSON.stringify({
             Username: $("#setUserName").val(),
@@ -163,27 +224,47 @@ function ajax_send()
 
 function ajax_dataProceed(data)
 {
+
+    detailData = data;
+
+    if(scanCodes.length==0)
+    {
+        scanCodes[scanCodes.length] = data.Code;
+    } else
+    {
+        for(var i=0;i<scanCodes.length;i++)
+        {
+            if(scanCodes[i]!=detailData.Code)
+            {
+                scanCodes[scanCodes.length] = data.Code;
+                console.log("vlozeno");
+            }
+        }
+    }
+
+
+
+
+    if(scanCodes.length>3)
+    {
+        scanCodes = scanCodes.slice(scanCodes.length-3,scanCodes.length);
+    }
+
     screenDetail_draw(data);
     showWindow('screenDetail');
     waiter_display(false);
-
-    scanData[scanData.length] = data;
-    if(scanData.length>3)
-    {
-        scanData = scanData.slice(scanData.length-3,scanData.length);
-    }
-
     memmoryRedraw();
 }
 
 
 function memmoryRedraw()
 {
+
     $("#memmory").empty();
 
-    for(var i in scanData){
-        console.log(scanData[i].Code);
-        $("#memmory").append('<h1 data-index="'+i+'" class="_buttonClick buttonOpacity buttonMemmory">'+ scanData[i].Code+'</h1>');
+    for(var i in scanCodes){
+        console.log(scanCodes[i]);
+        $("#memmory").append('<h1 class="_buttonClick buttonOpacity buttonMemmory">'+ scanCodes[i]+'</h1>');
     }
 
 }
@@ -192,11 +273,11 @@ function memmoryRedraw()
 
 function screenDetail_draw(data)
 {
+
     var numRows = 0;
-    console.log(data);
+    var strData = "";
     if(data!=null)
     {
-        strData = "";
         for(var i in data){
             strData += i + "=" + data[i] + "\n";
             numRows++;
