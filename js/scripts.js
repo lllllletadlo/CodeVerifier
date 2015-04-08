@@ -39,7 +39,6 @@ function clickInit()
 
     $("#memmory").on(support.supportedTouchStartEven, "#memmory h1", function (e) {
 
-        return;
         screenDetail_draw(scanData[$(this).attr("data-index")]);
         showWindow("screenDetail");
     });
