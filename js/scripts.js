@@ -18,6 +18,7 @@ function onDeviceReady() {
 
     showWindow("screenScan");
 
+
     //$("div.footer").css("top",$("div.footer").position().top + "px");
     $("div.footer").css("top",$(document).height()-$("div.footer").height() + "px");
     $("#verzeApp").css("top",$(document).height()-$("#verzeApp").height()-2 + "px");
@@ -56,10 +57,17 @@ function showWindow(windowName)
     $("#"+windowName).css("display","block");
     $(".foot"+windowName + " span").css("color","white");
 
+}
 
-
-
-
+function waiter_display(show)
+{
+    if(show)
+    {
+        $("#specInfo").css("display","block");
+    } else
+    {
+        $("#specInfo").css("display","none");
+    }
 }
 
 function getImei_handler(imei) {
@@ -108,6 +116,8 @@ function scanBarcode() {
 
 function ajax_send()
 {
+    waiter_display(true);
+
     $.ajax({
         //url: url + "/tokens/show/QwSwVL5Py5g=.json",
         url: $("#setServer").val() + "tokens/show/"+$('#scanResult').val()+"=.json",
@@ -128,6 +138,7 @@ function ajax_dataProceed(data)
 {
     screenDetail_draw(data);
     showWindow('screenDetail');
+    waiter_display(false);
 
     scanData[scanData.length] = data;
     if(scanData.length>3)
@@ -171,6 +182,8 @@ function screenDetail_draw(data)
 }
 
 function ajaxErrorHandler(data) {
+
+    waiter_display(false);
     console.log(data);
 
 

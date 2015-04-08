@@ -104,7 +104,7 @@ input {
 
 .buttonMain {
     background-color: grey;
-    padding: 0.2em;
+    padding: 1em;
     margin: 10% 25%;
 }
 
@@ -134,11 +134,12 @@ input {
 #memmory {
     background-color: white;
     margin: 10%;
-    height: 7em;
+    height: 10em;
 }
 
 .buttonMemmory {
     background-color: grey;
+    padding: 1em;
 }
 /* -------------------------------------- screenDetail */
 #screenDetail textarea {
@@ -179,5 +180,23 @@ input {
     text-align: center;
     font-size: 28px;
     padding: 2px;
+}
+
+.special.info {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    background: rgba(128, 128, 128, 0.9);
+    z-index: 1500;
+}
+.special.info h1{
+    top: 50%;
+    position: absolute;
+    margin-top: -1em;
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
 }
 
