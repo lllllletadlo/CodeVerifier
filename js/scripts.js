@@ -119,7 +119,7 @@ function scanBarcode() {
         result.text = "text";
         result.format = "format";
         //$('#scanResult').val("IqiW87hcEZg");
-        $('#scanResult').val("IxOwVg84Eh0=");
+        $('#scanResult').val("ErcFTJuOspE=");
         ajax_send();
     } else
     {
@@ -186,7 +186,7 @@ function ajax_pay()
 
     $.ajax({
         //url: url + "/tokens/show/QwSwVL5Py5g=.json",
-        url: $("#setServer").val() + "tokens/pay/"+$('#scanResult').val()+"=.json",
+        url: $("#setServer").val() + "tokens/pay/"+$('#scanResult').val()+".json",
         type: 'POST',
         data: JSON.stringify({
             Username: $("#setUserName").val(),
