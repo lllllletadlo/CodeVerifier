@@ -13,6 +13,12 @@ function onDeviceReady() {
         window.plugins.imeiplugin.getImei(getImei_handler);
     }
 
+    if(local)
+    {
+        $("#memmory").append('<h1 data-index="0" class="_buttonClick buttonOpacity buttonMemmory">IqiW87hcEZg=</h1>');
+        $("#memmory").append('<h1 data-index="0" class="_buttonClick buttonOpacity buttonMemmory">aa=</h1>');
+    }
+
 
     $("#specInfo").css("display","none");
 
@@ -32,6 +38,7 @@ function clickInit()
 
     $("div.footer").on(support.supportedTouchStartEven, "li", function (e) {
         e.stopPropagation();
+        e.preventDefault();
         showWindow($(this).attr("class").substring(4));
 
     });
