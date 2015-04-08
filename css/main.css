@@ -92,4 +92,89 @@ input[type=button]:active {
 .textLeft {
     text-align: left;
 }
-/* --------- content info */
+/* --------- content info global */
+
+
+.main {
+    text-align: center;
+}
+input {
+    text-align: center;
+}
+
+.buttonMain {
+    background-color: grey;
+    padding: 0.2em;
+    margin: 10% 25%;
+}
+
+.screen > h1 {
+    background: #3a4b63;
+    font-size: 120%;
+    padding: 3%;
+    margin-bottom: 4%;
+}
+/* -------------------------------------- verzeApp */
+#verzeApp {
+    position: absolute;
+    color: white;
+    font-size: 0.5em;
+}
+
+/* -------------------------------------- screenNastaveni */
+
+#setServer {
+    width: 90%;
+}
+
+/* -------------------------------------- screenScan */
+#memmory {
+    background-color: white;
+    margin: 10%;
+    height: 7em;
+}
+
+.buttonMemmory {
+    background-color: grey;
+}
+/* -------------------------------------- screenDetail */
+#screenDetail textarea {
+    width: 90%;
+}
+
+
+.footer {
+    width: 100%;
+    height: 10%;
+    background: #3a4b63;
+    float: left;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    bottom: 0;
+}
+
+.footer ul li {
+    list-style: none;
+    float: left;
+    font-family: "Arial";
+    font-size: 0.8em;
+    text-align: center;
+    width: 33%;
+}
+
+.footer ul li span {
+    text-decoration: none;
+    display: block;
+    color: #798898;
+    padding: 8px 0 5px 0px;
+}
+
+.footer ul li span i {
+    display: block;
+    clear: both;
+    text-align: center;
+    font-size: 28px;
+    padding: 2px;
+}
+
