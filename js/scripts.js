@@ -37,7 +37,7 @@ function clickInit()
     });
 
 
-    $("#memmory").on(support.supportedTouchStartEven, "#memmory h1", function (e) {
+    $("#memmory").on(support.supportedTouchStartEven, "h1", function (e) {
 
         screenDetail_draw(scanData[$(this).attr("data-index")]);
         showWindow("screenDetail");
