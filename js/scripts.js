@@ -31,7 +31,7 @@ function clickInit()
 {
 
     $("div.footer").on(support.supportedTouchStartEven, "li", function (e) {
-
+        e.stopPropagation();
         showWindow($(this).attr("class").substring(4));
 
     });
