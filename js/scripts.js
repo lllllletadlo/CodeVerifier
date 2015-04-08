@@ -157,7 +157,7 @@ function ajax_blok(code)
         data: JSON.stringify({
             Username: $("#setUserName").val(),
             Password: "heslo",
-            IMEI: "123456789012345"
+            IMEI: $("#imei").val()
         }),
         contentType: 'application/json',
         dataType: 'json',
@@ -191,7 +191,7 @@ function ajax_pay()
         data: JSON.stringify({
             Username: $("#setUserName").val(),
             Password: "heslo",
-            IMEI: "123456789012345",
+            IMEI: $("#imei").val(),
             Amount : detailData.Due
         }),
         contentType: 'application/json',
@@ -213,7 +213,7 @@ function ajax_send()
         data: JSON.stringify({
             Username: $("#setUserName").val(),
             Password: "heslo",
-            IMEI: "123456789012345"
+            IMEI: $("#imei").val()
         }),
         contentType: 'application/json',
         dataType: 'json',
