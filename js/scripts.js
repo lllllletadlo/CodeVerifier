@@ -2,7 +2,7 @@ var scanCodes = [];
 var detailData;
 //scanData_currentindex = -1;
 var ticketData;
-
+var fakeCode="";
 function onDeviceReady() {
 
 
@@ -122,7 +122,8 @@ function scanBarcode() {
         result.text = "text";
         result.format = "format";
         //$('#scanResult').val("IqiW87hcEZg");
-        $('#scanResult').val("ExPuEt3Z5KE=");
+        if(fakeCode!="") $('#scanResult').val(fakeCode);
+         else $('#scanResult').val("DSriDYlyJwY=");
         ajax_send();
     } else
     {
@@ -227,22 +228,18 @@ function ajax_dataProceed(data)
 
     detailData = data;
 
-    if(scanCodes.length==0)
+    // existuje uz takovy kod
+    var exist = false;
+    for(var i=0;i<scanCodes.length;i++)
     {
-        scanCodes[scanCodes.length] = data.Code;
-    } else
-    {
-        for(var i=0;i<scanCodes.length;i++)
+        if(scanCodes[i]==detailData.Code)
         {
-            if(scanCodes[i]!=detailData.Code)
-            {
-                scanCodes[scanCodes.length] = data.Code;
-                console.log("vlozeno");
-            }
+            exist = true;
         }
     }
 
-
+    if(!exist)
+        scanCodes.push(detailData.Code);
 
 
     if(scanCodes.length>3)
