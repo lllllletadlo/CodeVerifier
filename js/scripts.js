@@ -14,6 +14,9 @@ function onDeviceReady() {
     if(!local)
     {
         window.plugins.imeiplugin.getImei(getImei_handler);
+    } else
+    {
+        $('#imei').val("123456789");
     }
 
     if(local)
@@ -104,7 +107,7 @@ function waiter_display(show)
 
 function getImei_handler(imei) {
     $('#imei').val(imei);
-    console.log("My Android IMEI :" + imei);
+    //console.log("My Android IMEI :" + imei);
 }
 
 /**
@@ -119,7 +122,7 @@ function scanBarcode() {
         result.text = "text";
         result.format = "format";
         //$('#scanResult').val("IqiW87hcEZg");
-        $('#scanResult').val("ErcFTJuOspE=");
+        $('#scanResult').val("ExPuEt3Z5KE=");
         ajax_send();
     } else
     {
@@ -166,18 +169,6 @@ function ajax_blok(code)
     });
 }
 
-function ajax_blokdataProceed(data)
-{
-    waiter_display(false);
-    var desc = data.ErrorDescription==null?"":"\n"+data.ErrorDescription;
-    if(data!=null)
-    {
-        alert(data.message + desc);
-        ajax_send();
-    }
-
-
-}
 
 
 function ajax_pay()
@@ -196,7 +187,7 @@ function ajax_pay()
         }),
         contentType: 'application/json',
         dataType: 'json',
-        success: ajax_blokdataProceed,
+        success: ajax_paydataProceed,
         error: ajaxErrorHandler
     });
 }
@@ -205,6 +196,15 @@ function ajax_pay()
 function ajax_send()
 {
     waiter_display(true);
+
+    /*
+    var dataTest = {
+        a : "asd",
+        b : "uu"
+    };
+    ajax_dataProceed(dataTest);
+    return;
+    */
 
     $.ajax({
         //url: url + "/tokens/show/QwSwVL5Py5g=.json",
@@ -291,14 +291,45 @@ function screenDetail_draw(data)
 
 function ajaxErrorHandler(data) {
 
+    aa = data;
     waiter_display(false);
     console.log(data);
+    var msg = "";
+    msg += data.statusText==null?"":"\n"+data.statusText;
+    msg += data.message==null?"":"\n"+data.message;
+    msg += data.responseText==null?"":"\n"+data.responseText;
+    if(msg!="")
+    {
+        alert(msg);
+    }
+}
+
+function ajax_blokdataProceed(data)
+{
+    waiter_display(false);
+    var desc = data.ErrorDescription==null?"":"\n"+data.ErrorDescription;
     if(data!=null)
     {
-        alertG(data.statusText);
+        alert(data.message + desc);
+        detailData.Due = data.Due;
+        screenDetail_draw(detailData);
+        //ajax_send();
     }
-
 }
+
+function ajax_paydataProceed(data)
+{
+    waiter_display(false);
+    var desc = data.ErrorDescription==null?"":"\n"+data.ErrorDescription;
+    if(data!=null)
+    {
+        alert(data.message + desc);
+        detailData.AmountPaid = data.AmountPaid;
+        screenDetail_draw(detailData);
+        //ajax_send();
+    }
+}
+
 
 function storage_write()
 {

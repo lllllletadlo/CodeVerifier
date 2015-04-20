@@ -69,7 +69,7 @@
     <h1>Načítám...</h1>
 </div>
 
-<div id="verzeApp">v0.2</div>
+<div id="verzeApp">v0.3</div>
 <!-------------------------------------------------- menu -->
 <!-------------------------------------------------- tops -->
 <!-------------------------------------------------- main content -->
@@ -82,7 +82,7 @@
         <label>Heslo</label><br>
         <input id="setPassword" value="heslo" type="password"><br>
 
-        <div class="_buttonClick buttonMain" onclick="storage_write()">ULOŽIT</div>
+        <div class="_buttonClick grey buttonMain" onclick="storage_write()">ULOŽIT</div>
         <label>IMEI:</label><br>
         <input id="imei">
 
@@ -91,7 +91,7 @@
     <div id="screenScan" class="screen">
         <h1>SKENOVÁNÍ</h1>
         <input id="scanResult">
-        <div class="_buttonClick buttonMain" onclick="scanBarcode()">SCAN</div>
+        <div class="_buttonClick grey buttonMain" onclick="scanBarcode()">SCAN</div>
 
         <div id="memmory">
 
@@ -101,8 +101,9 @@
     <div id="screenDetail" class="screen">
         <h1>DETAIL</h1>
         <textarea readonly></textarea>
-        <div class="_buttonClick buttonMain" onclick="ajax_blok()">BLOKOVÁNÍ</div>
-        <div class="_buttonClick buttonMain" onclick="ajax_pay()">PLATBA</div>
+        <div class="_buttonClick buttonMain yellow" onclick="ajax_send()">AKTUALIZOVÁNÍ</div>
+        <div class="_buttonClick buttonHorizontal grey" onclick="ajax_blok()">BLOKOVÁNÍ</div>
+        <div class="_buttonClick buttonHorizontal grey" onclick="ajax_pay()">PLATBA</div>
 
     </div>
 

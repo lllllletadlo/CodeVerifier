@@ -111,6 +111,24 @@ input {
     padding: 1em;
     margin: 10% 25%;
 }
+.buttonHorizontal {
+    display: inline-block;
+    padding: 1em;
+    width: 30%;
+}
+
+.grey {
+    background-color: grey;
+}
+.yellow {
+    background-color: #fddc9a;
+}
+.green {
+    background-color: #c2ce89;
+}
+.red {
+    background-color: #db5a5a;
+}
 
 .screen > h1 {
     background: #3a4b63;
