@@ -226,7 +226,7 @@ function ajax_send()
 
 function ajax_dataProceed(data)
 {
-
+	alert(data);
     detailData = data;
 
     // existuje uz takovy kod
