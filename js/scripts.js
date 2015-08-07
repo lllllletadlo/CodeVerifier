@@ -226,7 +226,7 @@ function ajax_send()
 
 function ajax_dataProceed(data)
 {
-	alert(data);
+	alert(JSON.parse(data, reviver));
     detailData = data;
 
     // existuje uz takovy kod
