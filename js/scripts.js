@@ -227,7 +227,11 @@ function ajax_send()
 
 function ajax_dataProceed(data)
 {
-	
+		var dt  = new Date();
+	    var dt2  = '10-08-2015 15:59:00'.split(/\-|\s/),
+	    dat2 = new Date(dt2.slice(0,3).reverse().join('/')+' '+dt2[3]);
+
+	    var seconds=(dt - dat2)/1000;
 
 	//var dt  = '01-01-1970 00:03:44'.split(/\-|\s/)
     
@@ -237,7 +241,7 @@ function ajax_dataProceed(data)
 	
 //	var currentdate = new Date();
 //	var seconds = (currentdate.getTime() - dat.getTime())
-//	alert(seconds);
+alert(seconds);
 	alert(JSON.stringify(data));
     detailData = data;
 
