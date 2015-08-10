@@ -139,7 +139,7 @@ function scanBarcode() {
             "format: " + result.format + "\n" +
             "cancelled: " + result.cancelled + "\n");
             console.log("SCANNER:", result);
-            alertG(result);
+            //alertG(result);
 
         }, function (error) {
             alertG("Chyba scanneru");
