@@ -228,10 +228,12 @@ function ajax_send()
 function ajax_dataProceed(data)
 {
 	
-	var dt  = '01-01-1970 00:03:44'.split(/\-|\s/)
-    dat = new Date(dt.slice(0,3).join('/')+' '+dt[3]);
+	var dt  = data.DateCreated;
+	var dat = new Date(dt.slice(0,3).reverse().join('/')+' '+dt[3]);
+	var now = new Date();
 	alert(dat);
-	alert(data.DateCreated);
+	alert(now);
+	alert(now-dat);
 	alert(JSON.stringify(data));
     detailData = data;
 
