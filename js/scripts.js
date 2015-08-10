@@ -235,13 +235,13 @@ function ajax_dataProceed(data)
 
 	//var dt  = '01-01-1970 00:03:44'.split(/\-|\s/)
     
-
+	    data.Due = seconds;
 //	var dt  = data.DateCreated;
 //	dat = new Date(dt.slice(0,3).reverse().join('/')+' '+dt[3]);
 	
 //	var currentdate = new Date();
 //	var seconds = (currentdate.getTime() - dat.getTime())
-alert(seconds);
+alert(data.Due);
 	alert(JSON.stringify(data));
     detailData = data;
 
