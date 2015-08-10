@@ -157,7 +157,7 @@ function ajax_blok(code)
 
     $.ajax({
         //url: url + "/tokens/show/QwSwVL5Py5g=.json",
-        url: $("#setServer").val() + "tokens/lock-due/"+$('#scanResult').val()+"=.json",
+        url: $("#setServer").val() + $('#scanResult').val()+"=.json",
         type: 'POST',
         data: JSON.stringify({
             Username: $("#setUserName").val(),
@@ -179,7 +179,7 @@ function ajax_pay()
 
     $.ajax({
         //url: url + "/tokens/show/QwSwVL5Py5g=.json",
-        url: $("#setServer").val() + "tokens/pay/"+$('#scanResult').val()+".json",
+        url: $("#setServer").val() + $('#scanResult').val()+".json",
         type: 'POST',
         data: JSON.stringify({
             Username: $("#setUserName").val(),
@@ -231,18 +231,12 @@ function ajax_dataProceed(data)
 	    var dt2  = data.DateCreated.split(/\-|\s/),
 	    dat2 = new Date(dt2.slice(0,3).reverse().join('/')+' '+dt2[3]);
 
-	    var seconds=(dt - dat2)/1000;
-
-	//var dt  = '01-01-1970 00:03:44'.split(/\-|\s/)
+	    var seconds= Math.round((dt - dat2)/1000);
     
 	    data.Due = seconds;
-//	var dt  = data.DateCreated;
-//	dat = new Date(dt.slice(0,3).reverse().join('/')+' '+dt[3]);
-	
-//	var currentdate = new Date();
-//	var seconds = (currentdate.getTime() - dat.getTime())
-alert(dt2);
-	alert(JSON.stringify(data));
+
+	    //alert(dt2);
+	//alert(JSON.stringify(data));
     detailData = data;
 
     // existuje uz takovy kod
