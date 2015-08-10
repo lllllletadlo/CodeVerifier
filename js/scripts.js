@@ -227,6 +227,8 @@ function ajax_send()
 
 function ajax_dataProceed(data)
 {
+	alert(data.Due);
+	alert(data.DateCreated);
 	alert(JSON.stringify(data));
     detailData = data;
 
