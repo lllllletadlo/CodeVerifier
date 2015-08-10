@@ -229,17 +229,13 @@ function ajax_send()
 function ajax_dataProceed(data)
 {
 	
-<<<<<<< HEAD
+
 	var dt  = '01-01-1970 00:03:44'.split(/\-|\s/)
     dat = new Date(dt.slice(0,3).reverse().join('/')+' '+dt[3]);
-=======
+
 	var dt  = data.DateCreated;
-	dat = new Date(dt.slice(0,3).reverse().join('/')+' '+dt[3]);
-	var now = new Date();
->>>>>>> 32d4683200a0b379f422e4d6ef5705d4e265ddb6
+
 	alert(dat);
-	alert(now);
-	//alert(now-dat);
 	alert(JSON.stringify(data));
     detailData = data;
 
