@@ -232,12 +232,12 @@ function ajax_dataProceed(data)
 	//var dt  = '01-01-1970 00:03:44'.split(/\-|\s/)
     
 
-	var dt  = data.DateCreated;
-	dat = new Date(dt.slice(0,3).reverse().join('/')+' '+dt[3]);
+//	var dt  = data.DateCreated;
+//	dat = new Date(dt.slice(0,3).reverse().join('/')+' '+dt[3]);
 	
-	var currentdate = new Date();
-	var seconds = (currentdate.getTime() - dat.getTime())
-	alert(seconds);
+//	var currentdate = new Date();
+//	var seconds = (currentdate.getTime() - dat.getTime())
+//	alert(seconds);
 	alert(JSON.stringify(data));
     detailData = data;
 
