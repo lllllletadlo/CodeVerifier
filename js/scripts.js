@@ -210,7 +210,8 @@ function ajax_send()
 
     $.ajax({
         //url: url + "/tokens/show/QwSwVL5Py5g=.json",
-        url: $("#setServer").val() + "tokens/show/" + $('#scanResult').val() +".json",
+        //url: $("#setServer").val() + "tokens/show/" + $('#scanResult').val() +".json",
+    	url: $("#setServer").val() + $('#scanResult').val() +".json",
         type: 'POST',
         data: JSON.stringify({
             Username: $("#setUserName").val(),
