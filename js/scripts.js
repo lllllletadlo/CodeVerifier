@@ -234,7 +234,10 @@ function ajax_dataProceed(data)
 
 	var dt  = data.DateCreated;
 	dat = new Date(dt.slice(0,3).reverse().join('/')+' '+dt[3]);
-	alert(dat);
+	
+	var currentdate = new Date();
+	var seconds = (currentdate.getTime() - dat.getTime())
+	alert(seconds);
 	alert(JSON.stringify(data));
     detailData = data;
 
