@@ -96,6 +96,7 @@ function showWindow(windowName)
 
 function waiter_display(show)
 {
+	alertG(show);
     if(show)
     {
         $("#specInfo").css("display","block");
@@ -139,7 +140,7 @@ function scanBarcode() {
             "format: " + result.format + "\n" +
             "cancelled: " + result.cancelled + "\n");
             console.log("SCANNER:", result);
-           // alertG(result);
+            alertG(result);
 
         }, function (error) {
             alertG("Chyba scanneru");
@@ -229,11 +230,11 @@ function ajax_dataProceed(data)
 {
 	
 	var dt  = data.DateCreated;
-	var dat = new Date(dt.slice(0,3).reverse().join('/')+' '+dt[3]);
+	dat = new Date(dt.slice(0,3).reverse().join('/')+' '+dt[3]);
 	var now = new Date();
 	alert(dat);
 	alert(now);
-	alert(now-dat);
+	//alert(now-dat);
 	alert(JSON.stringify(data));
     detailData = data;
 
