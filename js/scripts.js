@@ -321,12 +321,13 @@ function ajax_blokdataProceed(data)
     if(data!=null)
     {
         //alert(data.message + desc);
-    	alertG("Provedeno");
+
        // detailData.Due = data.Due;
     	detailData.DateLocked = DateTime.Now.ToString("dd/MM/yyyy HH:MM:ss");
     	alert(detailData.DateLocked);
     	alert(JSON.stringify(detailData));
         screenDetail_draw(detailData);
+    	alertG("Provedeno");
         //ajax_send();
     }
 }
