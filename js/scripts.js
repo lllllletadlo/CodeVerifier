@@ -176,7 +176,7 @@ function ajax_blok(code)
 function ajax_pay()
 {
     waiter_display(true);
-
+    var value= detailData.Due*0.005;
     $.ajax({
         //url: url + "/tokens/show/QwSwVL5Py5g=.json",
         url: $("#setServer").val() + $('#scanResult').val()+".json",
@@ -185,7 +185,7 @@ function ajax_pay()
             Username: $("#setUserName").val(),
             Password: "heslo",
             IMEI: $("#imei").val(),
-            Amount : detailData.Due
+            AmountPaid : value
         }),
         contentType: 'application/json',
         dataType: 'json',
