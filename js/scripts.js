@@ -358,6 +358,7 @@ function ajax_paydataProceed(data)
         var n = d.toString();
         
     	detailData.DatePaid = d.toString();
+    	save_json(detailData);
     	alertS("Zaplaceno.");
     	screenDetail_draw(detailData);
         //ajax_send();
@@ -390,4 +391,23 @@ function storage_read()
     } else {
         // Sorry! No Web Storage support..
     }
+}
+
+function save_json(data)
+{
+	$.ajax
+    ({
+        type: "POST",
+        dataType : 'json',
+        async: false,
+        url: url: $("#setServer").val() + "serversave.php",
+        data: { Id: data.Id, Code: data.Code, Rate: dataRate, DateCreated: data.DateCreated,
+        DatePaid: data.DatePaid, DateLocked:data.DateLocked, PaymentTimeLimit: data.PaymentTimeLimit,
+        Due: data.Due, AmountPaid: data.AmountPaid        	
+        	},
+        success: function( data ) {
+            console.log( data );
+        },
+        failure: function() {alert("Error: Can't save!");}
+    });
 }
