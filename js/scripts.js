@@ -318,20 +318,22 @@ function ajax_blokdataProceed(data)
 {
     waiter_display(false);
     var desc = data.ErrorDescription==null?"":"\n"+data.ErrorDescription;
-
+    var d = new Date();
+    var n = d.toString();
+    alert(n);
 	//detailData.DateLocked = DateTime.Now.ToString("dd/MM/yyyy HH:MM:ss");
-	data.DateLocked = DateTime.Now.ToString("dd/MM/yyyy HH:MM:ss");
+	data.DateLocked = d.d.toString();;
 	//alert(JSON.stringify(data));
 	alert(data.DateLocked);
-    screenDetail_draw(detailData);
+ 
     
     if(data!=null)
     {
         //alert(data.message + desc);
-
        // detailData.Due = data.Due;
 
-    	//alertG("Provedeno");
+    	alertG("Provedeno");
+    	screenDetail_draw(detailData);
         //ajax_send();
     }
 }
