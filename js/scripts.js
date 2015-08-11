@@ -321,8 +321,11 @@ function ajax_blokdataProceed(data)
     var desc = data.ErrorDescription==null?"":"\n"+data.ErrorDescription;
     if(data!=null)
     {
-        alert(data.message + desc);
-        detailData.Due = data.Due;
+        //alert(data.message + desc);
+    	alertG("Provedeno");
+       // detailData.Due = data.Due;
+    	detailData.DateLocked = DateTime.Now.ToString("dd/MM/yyyy HH:MM:ss");
+    	alert(detailData.DateLocked);
         screenDetail_draw(detailData);
         //ajax_send();
     }
