@@ -227,13 +227,25 @@ function ajax_send()
 
 function ajax_dataProceed(data)
 {
+	// aktualizace Due
+	if(detailData.DataPaid == "null")
+    {
 		var dt  = new Date();
 	    var dt2  = data.DateCreated.split(/\-|\s/),
 	    dat2 = new Date(dt2.slice(0,3).reverse().join('/')+' '+dt2[3]);
-
-	    var seconds= Math.round((dt - dat2)/1000);
-    
+	    var seconds= Math.round((dt - dat2)/1000);    
 	    data.Due = seconds;
+    }
+		
+	    if(detailData.DataPaid != "null")
+        {
+	    	data.DataPaid = detailData.DataPaid;
+        }
+	    if(detailData.DataLocked != "null")
+        {
+	    	data.DataLocked = detailData.DataLocked;
+	    	data.AmountPaid = detailData.AmountPaid;
+        }
 
 	 //alert(dt2);
 	
@@ -319,7 +331,8 @@ function ajax_blokdataProceed(data)
     waiter_display(false);
     var desc = data.ErrorDescription==null?"":"\n"+data.ErrorDescription;
      
-   
+   if(detailData.DateLocked == "null")
+{
 	
     if(data!=null)
     {
@@ -335,6 +348,12 @@ function ajax_blokdataProceed(data)
     
         //ajax_send();
     }
+} else
+	{
+	alertS("Již zablokováno.");
+	
+	}
+   
 }
 
 function ajax_paydataProceed(data)
