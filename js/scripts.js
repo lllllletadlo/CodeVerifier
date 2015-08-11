@@ -319,17 +319,20 @@ function ajax_blokdataProceed(data)
     waiter_display(false);
     var desc = data.ErrorDescription==null?"":"\n"+data.ErrorDescription;
      
-    
+   
+	
     if(data!=null)
     {
         //alert(data.message + desc);
        // detailData.Due = data.Due;
+    	
     	var d = new Date();
-        var n = d.toString();
-        
-    	detaildata.DateLocked = d.toString();
-    	alertS("Provedeno.");
-    	screenDetail_draw(detailData);
+    	var n = d.toString();
+    	    
+       detailData.DateLocked = d.toString();
+       alertS("Provedeno.");
+       screenDetail_draw(detailData);
+    
         //ajax_send();
     }
 }
@@ -346,7 +349,7 @@ function ajax_paydataProceed(data)
     	var d = new Date();
         var n = d.toString();
         
-    	detaildata.DatePaid = d.toString();
+    	detailData.DatePaid = d.toString();
     	alertS("Zaplaceno.");
     	screenDetail_draw(detailData);
         //ajax_send();
