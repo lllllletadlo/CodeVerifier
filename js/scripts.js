@@ -320,7 +320,8 @@ function ajax_blokdataProceed(data)
     var desc = data.ErrorDescription==null?"":"\n"+data.ErrorDescription;
 
 	detailData.DateLocked = DateTime.Now.ToString("dd/MM/yyyy HH:MM:ss");
-	alert(JSON.stringify(detailData));
+	data.DateLocked = DateTime.Now.ToString("dd/MM/yyyy HH:MM:ss");
+	alert(JSON.stringify(data));
     screenDetail_draw(detailData);
     
     if(data!=null)
