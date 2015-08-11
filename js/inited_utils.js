@@ -65,6 +65,26 @@ function alertG(msg,title)
 }
 
 
+function alertS(msg,title)
+{
+    if(typeof navigator.notification!="undefined")
+    {
+        if(title == undefined) title = "Zpráva:";
+
+        navigator.notification.alert(
+            msg,  // message
+            null,         // callback
+            title,            // title
+            'OK'                  // buttonName
+        );
+    } else
+    {
+        alert(msg);
+    }
+
+
+}
+
 function PinchEl(elementToZoom, elementPinch)
 {
     /*
