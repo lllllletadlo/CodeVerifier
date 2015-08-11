@@ -327,7 +327,7 @@ function ajax_blokdataProceed(data)
     	alert(detailData.DateLocked);
     	alert(JSON.stringify(detailData));
         screenDetail_draw(detailData);
-    	alertG("Provedeno");
+    	//alertG("Provedeno");
         //ajax_send();
     }
 }
