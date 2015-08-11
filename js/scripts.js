@@ -319,9 +319,10 @@ function ajax_blokdataProceed(data)
     waiter_display(false);
     var desc = data.ErrorDescription==null?"":"\n"+data.ErrorDescription;
 
-	detailData.DateLocked = DateTime.Now.ToString("dd/MM/yyyy HH:MM:ss");
+	//detailData.DateLocked = DateTime.Now.ToString("dd/MM/yyyy HH:MM:ss");
 	data.DateLocked = DateTime.Now.ToString("dd/MM/yyyy HH:MM:ss");
-	alert(JSON.stringify(data));
+	//alert(JSON.stringify(data));
+	alert(data.DateLocked);
     screenDetail_draw(detailData);
     
     if(data!=null)
