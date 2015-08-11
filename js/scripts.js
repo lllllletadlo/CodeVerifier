@@ -317,7 +317,6 @@ function ajaxErrorHandler(data) {
 function ajax_blokdataProceed(data)
 {
     waiter_display(false);
-    alert(JSON.stringify(detailData));
     var desc = data.ErrorDescription==null?"":"\n"+data.ErrorDescription;
     if(data!=null)
     {
@@ -326,6 +325,7 @@ function ajax_blokdataProceed(data)
        // detailData.Due = data.Due;
     	detailData.DateLocked = DateTime.Now.ToString("dd/MM/yyyy HH:MM:ss");
     	alert(detailData.DateLocked);
+    	alert(JSON.stringify(detailData));
         screenDetail_draw(detailData);
         //ajax_send();
     }
