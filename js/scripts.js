@@ -235,10 +235,12 @@ function ajax_dataProceed(data)
     
 	    data.Due = seconds;
 
-	    //alert(dt2);
-	//alert(JSON.stringify(data));
+	 //alert(dt2);
+	
     detailData = data;
-
+  alert(JSON.stringify(detailData));
+    
+    
     // existuje uz takovy kod
     var exist = false;
     for(var i=0;i<scanCodes.length;i++)
@@ -315,6 +317,7 @@ function ajaxErrorHandler(data) {
 function ajax_blokdataProceed(data)
 {
     waiter_display(false);
+    alert(JSON.stringify(detailData));
     var desc = data.ErrorDescription==null?"":"\n"+data.ErrorDescription;
     if(data!=null)
     {
