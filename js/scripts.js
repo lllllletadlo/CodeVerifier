@@ -233,7 +233,7 @@ function ajax_dataProceed(data)
 	    var dt2  = data.DateCreated.split(/\-|\s/),
 	    dat2 = new Date(dt2.slice(0,3).reverse().join('/')+' '+dt2[3]);
 	    var seconds= Math.ceil((dt - dat2)/1000);    
-	    data.Due = seconds;
+	    data.Due = seconds + 6;
     	
 	
     detailData = data;
