@@ -208,6 +208,8 @@ function ajax_send()
     return;
     */
 if(detailData){
+		
+	ajax_dataProceed(detailData);
     
 	}else
 	{
