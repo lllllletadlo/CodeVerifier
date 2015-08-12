@@ -207,7 +207,7 @@ function ajax_send()
     ajax_dataProceed(dataTest);
     return;
     */
-
+if(detailData=null){
     $.ajax({
         //url: url + "/tokens/show/QwSwVL5Py5g=.json",
         //url: $("#setServer").val() + "tokens/show/" + $('#scanResult').val() +".json",
@@ -223,6 +223,8 @@ function ajax_send()
         success: ajax_dataProceed,
         error: ajaxErrorHandler
     });
+    
+	}
 }
 
 function ajax_dataProceed(data)
@@ -363,7 +365,7 @@ function ajax_paydataProceed(data)
     	screenDetail_draw(detailData);
         //ajax_send();
     	}
-    }
+    }else
     {
     	alertS("Již zaplaceno.");
     }
