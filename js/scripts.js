@@ -232,14 +232,12 @@ function ajax_dataProceed(data)
 		var dt  = new Date();
 	    var dt2  = data.DateCreated.split(/\-|\s/),
 	    dat2 = new Date(dt2.slice(0,3).reverse().join('/')+' '+dt2[3]);
-	    var seconds= Math.round((dt - dat2)/1000);    
+	    var seconds= Math.ceil((dt - dat2)/1000);    
 	    data.Due = seconds;
-    		
-
-	 //alert(dt2);
+    	
 	
     detailData = data;
-  alert(JSON.stringify(detailData));
+    //alert(JSON.stringify(detailData));
     
     
     // existuje uz takovy kod
