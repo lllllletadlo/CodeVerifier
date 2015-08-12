@@ -207,7 +207,7 @@ function ajax_send()
     ajax_dataProceed(dataTest);
     return;
     */
-if(detailData=null){
+if(detailData){
     $.ajax({
         //url: url + "/tokens/show/QwSwVL5Py5g=.json",
         //url: $("#setServer").val() + "tokens/show/" + $('#scanResult').val() +".json",
@@ -224,6 +224,9 @@ if(detailData=null){
         error: ajaxErrorHandler
     });
     
+	}else
+	{
+		alertG("Je to");
 	}
 }
 
