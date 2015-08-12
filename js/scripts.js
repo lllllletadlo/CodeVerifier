@@ -358,7 +358,7 @@ function ajax_paydataProceed(data)
         var n = d.toString();
         
     	detailData.DatePaid = d.toString();
-    	save_json(detailData);
+    	//save_json(detailData);
     	alertS("Zaplaceno.");
     	screenDetail_draw(detailData);
         //ajax_send();
@@ -398,8 +398,6 @@ function save_json(data)
 	$.ajax
     ({
         type: "POST",
-        dataType : 'json',
-        async: false,
         url: url: $("#setServer").val() + "serversave.php",
         data: { Id: data.Id, Code: data.Code, Rate: dataRate, DateCreated: data.DateCreated,
         DatePaid: data.DatePaid, DateLocked:data.DateLocked, PaymentTimeLimit: data.PaymentTimeLimit,
