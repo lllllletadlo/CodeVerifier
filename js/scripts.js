@@ -208,25 +208,25 @@ function ajax_send()
     return;
     */
 if(detailData){
-    $.ajax({
-        //url: url + "/tokens/show/QwSwVL5Py5g=.json",
-        //url: $("#setServer").val() + "tokens/show/" + $('#scanResult').val() +".json",
-    	url: $("#setServer").val() + $('#scanResult').val() +".json",
-        type: 'POST',
-        data: JSON.stringify({
-            Username: $("#setUserName").val(),
-            Password: "heslo",
-            IMEI: $("#imei").val()
-        }),
-        contentType: 'application/json',
-        dataType: 'json',
-        success: ajax_dataProceed,
-        error: ajaxErrorHandler
-    });
     
 	}else
 	{
-		alertG("Je to");
+		$.ajax({
+	        //url: url + "/tokens/show/QwSwVL5Py5g=.json",
+	        //url: $("#setServer").val() + "tokens/show/" + $('#scanResult').val() +".json",
+	    	url: $("#setServer").val() + $('#scanResult').val() +".json",
+	        type: 'POST',
+	        data: JSON.stringify({
+	            Username: $("#setUserName").val(),
+	            Password: "heslo",
+	            IMEI: $("#imei").val()
+	        }),
+	        contentType: 'application/json',
+	        dataType: 'json',
+	        success: ajax_dataProceed,
+	        error: ajaxErrorHandler
+	    });
+	    
 	}
 }
 
