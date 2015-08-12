@@ -348,8 +348,10 @@ function ajax_paydataProceed(data)
 {
     waiter_display(false);
     var desc = data.ErrorDescription==null?"":"\n"+data.ErrorDescription;
-    if(data!=null)
+    if(detailData.DatePaid == "null")
     {
+    if(data!=null)
+    	{
         //alert(data.message + desc);
         //detailData.AmountPaid = data.AmountPaid;
         
@@ -360,6 +362,10 @@ function ajax_paydataProceed(data)
     	alertS("Zaplaceno.");
     	screenDetail_draw(detailData);
         //ajax_send();
+    	}
+    }
+    {
+    	alertS("Již zaplaceno.");
     }
 }
 
